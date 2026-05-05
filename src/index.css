@@ -1,0 +1,268 @@
+@import "tailwindcss";
+
+/* ===================================================== */
+/* 🌌 GLOBAL BASE */
+/* ===================================================== */
+:root {
+  --bg-primary: #020617;
+  --bg-secondary: #0f172a;
+  --purple: #a855f7;
+  --purple-strong: #7c3aed;
+  --orange: #f59e0b;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, var(--bg-secondary), var(--bg-primary));
+  font-family: 'Inter', Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+/* smoother rendering */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+
+/* ===================================================== */
+/* 💎 GLASS UI SYSTEM */
+/* ===================================================== */
+.glass-card {
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+  border-radius: 20px;
+
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.02),
+    0 10px 40px rgba(0,0,0,0.5);
+
+  transition: all 0.35s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(168, 85, 247, 0.45);
+  box-shadow:
+    0 0 35px rgba(168, 85, 247, 0.25),
+    0 25px 70px rgba(0,0,0,0.7);
+  transform: translateY(-4px);
+}
+
+
+/* ===================================================== */
+/* 🎯 BUTTON SYSTEM */
+/* ===================================================== */
+.btn-gradient {
+  background: linear-gradient(90deg, var(--purple-strong), var(--purple), var(--orange));
+  color: white;
+  font-weight: 600;
+  border-radius: 999px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-gradient::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.15);
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.btn-gradient:hover::after {
+  opacity: 1;
+}
+
+.btn-gradient:hover {
+  transform: scale(1.05);
+}
+
+.btn-gradient:active {
+  transform: scale(0.95);
+}
+
+
+/* ===================================================== */
+/* 🌈 TEXT GRADIENT */
+/* ===================================================== */
+.text-gradient {
+  background: linear-gradient(90deg, #c084fc, #a855f7, #f59e0b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.animate-gradient {
+  background-size: 200% auto;
+  animation: gradientShift 6s linear infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% }
+  100% { background-position: 200% }
+}
+
+
+/* ===================================================== */
+/* 🔥 FLOAT ANIMATIONS */
+/* ===================================================== */
+@keyframes float {
+  0%,100% { transform: translateY(0px); }
+  50% { transform: translateY(-40px); }
+}
+
+@keyframes floatSlow {
+  0%,100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.animate-float {
+  animation: float 10s ease-in-out infinite;
+}
+
+.animate-floatSlow {
+  animation: floatSlow 16s ease-in-out infinite;
+}
+
+
+/* ===================================================== */
+/* 🚀 MARQUEE (TRUE INFINITE LOOP — NO GAP EVER) */
+/* ===================================================== */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+  position: relative;
+  will-change: transform;
+}
+
+/* pause on hover */
+.hover\:paused:hover {
+  animation-play-state: paused;
+}
+
+
+/* ===================================================== */
+/* ✨ EDGE FADE (ULTRA PREMIUM) */
+/* ===================================================== */
+.marquee-mask {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+
+/* ===================================================== */
+/* 🌟 SHIMMER EFFECT */
+/* ===================================================== */
+.animate-marquee::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(168, 85, 247, 0.15),
+    transparent
+  );
+  animation: shimmer 6s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-120%); }
+  100% { transform: translateX(120%); }
+}
+
+
+/* ===================================================== */
+/* 🎯 CUSTOM SCROLLBAR */
+/* ===================================================== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--purple-strong), var(--purple));
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--purple);
+}
+
+
+/* ===================================================== */
+/* 🎚 RANGE SLIDER (PREMIUM) */
+/* ===================================================== */
+input[type="range"] {
+  appearance: none;
+  height: 4px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, var(--purple), var(--orange));
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: var(--purple);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 12px var(--purple);
+  transition: 0.2s;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+
+/* ===================================================== */
+/* 🔥 CARD MICRO INTERACTIONS */
+/* ===================================================== */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 60px rgba(168, 85, 247, 0.25);
+}
+
+
+/* ===================================================== */
+/* 🔧 SCROLL OFFSET FIX */
+/* ===================================================== */
+#predictor {
+  scroll-margin-top: 120px;
+}
