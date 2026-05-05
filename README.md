@@ -84,6 +84,11 @@ Similar Homes: 18
 Gopi
 GitHub: https://github.com/Jgopi07
 
+OUTPUT:
+<img width="1919" height="961" alt="image" src="https://github.com/user-attachments/assets/e79ce3c7-8eb2-4879-9a0e-31e487421ea6" />
+<img width="1919" height="966" alt="image" src="https://github.com/user-attachments/assets/007f9270-2864-44f8-a2e1-9b69fb406078" />
+<img width="1919" height="959" alt="image" src="https://github.com/user-attachments/assets/cd391a90-dac3-4d3c-9972-2eddd5eae66d" />
+
 📌 Note
 
 This project simulates machine learning logic on the frontend for fast and interactive predictions.
