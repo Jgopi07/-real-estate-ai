@@ -10,7 +10,7 @@ document.body.style.backgroundColor = "#020617";
 /* 🚀 Render App with Router */
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter>   {/* ✅ REQUIRED for routing */}
+    <BrowserRouter basename={import.meta.env.BASE_URL || "/"}>
       <App />
     </BrowserRouter>
   </React.StrictMode>

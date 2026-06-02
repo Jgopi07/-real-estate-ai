@@ -11,14 +11,18 @@ import {
 
 export default function FeatureImportance({ data }) {
 
-  // 🔥 structured data
+  // ====================================================
+  // 🎯 ONLY 4 FEATURES: Area, Bedrooms, Bathrooms, Parking
+  // NO Location, NO Metro, NO Near Metro
+  // ====================================================
+  // data is a 4-element array: [area, bedrooms, bathrooms, parking]
+  // Fallback values from model_metadata.json trained weights
   const chartData = [
-    { name: "Area", value: data?.[0] || 0.59, color: "#c084fc" },
-    { name: "Location", value: data?.[3] || 0.17, color: "#818cf8" },
-    { name: "Bedrooms", value: data?.[1] || 0.11, color: "#facc15" },
-    { name: "Metro", value: data?.[6] || 0.06, color: "#a78bfa" },
-    { name: "Bathrooms", value: data?.[2] || 0.04, color: "#60a5fa" },
-  ];
+    { name: "Area", value: data?.[0] ?? 0.5015, color: "#c084fc" },
+    { name: "Bedrooms", value: data?.[1] ?? 0.2435, color: "#facc15" },
+    { name: "Bathrooms", value: data?.[2] ?? 0.1582, color: "#60a5fa" },
+    { name: "Parking", value: data?.[3] ?? 0.0968, color: "#818cf8" },
+  ].sort((a, b) => b.value - a.value);
 
   return (
     <div className="glass-card p-6">
